@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belén Guarnieri - Sales Automation / SDR Senior</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .cv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50px, -50px) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            border: 4px solid rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .name {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .title {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 1px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            min-height: 600px;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-right: 1px solid #e9ecef;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #37474f;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .contact-text {
+            font-size: 0.95em;
+            color: #555;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 12px 18px;
+            margin: 8px 0;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .job {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #667eea;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .job:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .job-header {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .job-header:hover {
+            background: #f8f9fa;
+        }
+        
+        .job-info {
+            flex: 1;
+        }
+        
+        .job-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .company-period {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .company {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .period {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            font-size: 24px;
+            color: #667eea;
+            transition: transform 0.3s ease;
+            margin-left: 15px;
+        }
+        
+        .job.active .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .job-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: #f8f9fa;
+        }
+        
+        .job.active .job-details {
+            max-height: 500px;
+            padding: 25px;
+        }
+        
+        .job-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .job-description li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: #555;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        
+        .job-description li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 14px;
+            top: 2px;
+        }
+        
+        .education-item {
+            background: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .education-details {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .cv-container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2.2em;
+            }
+            
+            .sidebar, .content {
+                padding: 30px 20px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .company-period {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .expand-icon {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="header">
+            <div class="profile-img">BG</div>
+            <h1 class="name">BELÉN GUARNIERI</h1>
+            <p class="title">SALES AUTOMATION / SDR SENIOR</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="section">
+                    <h2 class="section-title">CONTACTO</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">belen.guarnieri@gmail.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">(11) 3758-3444</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-text">linkedin.com/in/belenguarnieri</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">Villa Urquiza, Buenos Aires</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">HABILIDADES</h2>
+                    <div class="skill-item">Ventas consultivas y ciclo full cycle</div>
+                    <div class="skill-item">Técnicas de cierre y negociación</div>
+                    <div class="skill-item">Estrategias inbound y outbound marketing</div>
+                    <div class="skill-item">Prospección: Apollo, Lusha, Waalaxy, LinkedIn Helper, Hubspot</div>
+                    <div class="skill-item">CRM, email marketing, análisis de datos</div>
+                    <div class="skill-item">Comunicación efectiva y persuasiva</div>
+                    <div class="skill-item">Herramientas IA y automatización: OpenAI, Claude, n8n, Make</div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">FORMACIÓN</h2>
+                    <div class="education-item">
+                        <div class="education-title">Scrum Master</div>
+                        <div class="education-details">Educación IT — Jun 2023</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-title">Community Manager</div>
+                        <div class="education-details">Coder House — Dic 2022</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-title">Inbound Marketing</div>
+                        <div class="education-details">Coder House — Jul 2022</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="intro">
+                    Soy una profesional de ventas con fuerte orientación humana: disfruto conectar con las personas, entender sus necesidades y construir relaciones de confianza. Me adapto rápido a distintos entornos, soy curiosa, empática y resolutiva. Me apasiona aprender, trabajar en equipo y generar oportunidades reales desde la escucha y la estrategia.
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">EXPERIENCIA LABORAL</h2>
+                    
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterJobs('all')">Todas</button>
+                        <button class="filter-btn" onclick="filterJobs('partnership')">Partnership</button>
+                        <button class="filter-btn" onclick="filterJobs('sdr')">SDR</button>
+                        <button class="filter-btn" onclick="filterJobs('sales')">Sales</button>
+                    </div>
+                    
+                    <div class="job" data-category="partnership">
+                        <div class="job-header" onclick="toggleJob(this)">
+                            <div class="job-info">
+                                <div class="job-title">Head of Partnership</div>
+                                <div class="company-period">
+                                    <div class="company">Güeno</div>
+                                    <div class="period">Mar 2025 - Jul 2025</div>
+                                </div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="job-details">
+                            <div class="job-description">
+                                <ul>
+                                    <li>Prospección outbound en la industria financiera para solución SaaS y Tech en LATAM</li>
+                                    <li>Contacto con decisores clave a través de LinkedIn, email y llamadas en frío</li>
+                                    <li>Generación de oportunidades comerciales y alianzas estratégicas con Partners</li>
+                                    <li>Participación en discovery calls y seguimiento de pipeline</li>
+                                    <li>Apoyo en demos, negociación y cierre en colaboración con equipos internos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job" data-category="sdr">
+                        <div class="job-header" onclick="toggleJob(this)">
+                            <div class="job-info">
+                                <div class="job-title">SDR</div>
+                                <div class="company-period">
+                                    <div class="company">ACL Tech</div>
+                                    <div class="period">May 2024 - Feb 2025</div>
+                                </div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="job-details">
+                            <div class="job-description">
+                                <ul>
+                                    <li>Prospección y calificación de cuentas objetivo para productos SaaS</li>
+                                    <li>Ejecución de campañas automatizadas de email y LinkedIn</li>
+                                    <li>Generación de pipeline y traspaso a equipos de cierre</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job" data-category="sdr">
+                        <div class="job-header" onclick="toggleJob(this)">
+                            <div class="job-info">
+                                <div class="job-title">Lead Gen Specialist</div>
+                                <div class="company-period">
+                                    <div class="company">LFi Chile</div>
+                                    <div class="period">Mar 2023 - Actualidad</div>
+                                </div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="job-details">
+                            <div class="job-description">
+                                <ul>
+                                    <li>Diseño y ejecución de estrategias de generación de demanda</li>
+                                    <li>Implementación de campañas de email marketing y optimización de landing pages</li>
+                                    <li>Segmentación y seguimiento de leads calificados para ventas SaaS</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job" data-category="sales">
+                        <div class="job-header" onclick="toggleJob(this)">
+                            <div class="job-info">
+                                <div class="job-title">Sales Representative (Full Cycle)</div>
+                                <div class="company-period">
+                                    <div class="company">HAL Company</div>
+                                    <div class="period">Ago 2022 - Mar 2023</div>
+                                </div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="job-details">
+                            <div class="job-description">
+                                <ul>
+                                    <li>Gestión integral del ciclo comercial: prospección, calificación, reuniones, demostraciones, negociación y cierre</li>
+                                    <li>Desarrollo de relaciones comerciales, seguimiento postventa y ampliación de cuentas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job" data-category="sales">
+                        <div class="job-header" onclick="toggleJob(this)">
+                            <div class="job-info">
+                                <div class="job-title">Inside Sales</div>
+                                <div class="company-period">
+                                    <div class="company">NovaRed</div>
+                                    <div class="period">Nov 2021 - Ago 2022</div>
+                                </div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="job-details">
+                            <div class="job-description">
+                                <ul>
+                                    <li>Ventas internas de soluciones tecnológicas: generación y cierre de oportunidades, elaboración de propuestas y manejo de licitaciones</li>
+                                    <li>Ejecución de campañas de up-selling y cross-selling</li>
+                                    <li>Gestión de cartera y fidelización de clientes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job" data-category="sales">
+                        <div class="job-header" onclick="toggleJob(this)">
+                            <div class="job-info">
+                                <div class="job-title">Ejecutiva de Cuentas</div>
+                                <div class="company-period">
+                                    <div class="company">USS Seguridad</div>
+                                    <div class="period">Oct 2014 - Jul 2021</div>
+                                </div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="job-details">
+                            <div class="job-description">
+                                <ul>
+                                    <li>Gestión comercial y atención a grandes cuentas corporativas</li>
+                                    <li>Identificación y desarrollo de nuevas oportunidades de negocio</li>
+                                    <li>Seguimiento integral y fidelización de clientes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>CV Interactivo creado por Belén Guarnieri • <a href="mailto:belen.guarnieri@gmail.com">Contacto</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleJob(header) {
+            const job = header.parentElement;
+            const isActive = job.classList.contains('active');
+            
+            // Cerrar todos los jobs
+            document.querySelectorAll('.job').forEach(j => {
+                j.classList.remove('active');
+            });
+            
+            // Si no estaba activo, abrirlo
+            if (!isActive) {
+                job.classList.add('active');
+            }
+        }
+        
+        function filterJobs(category) {
+            const jobs = document.querySelectorAll('.job');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Actualizar botones
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filtrar jobs
+            jobs.forEach(job => {
+                if (category === 'all' || job.dataset.category === category) {
+                    job.style.display = 'block';
+                    setTimeout(() => {
+                        job.style.opacity = '1';
+                        job.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    job.style.opacity = '0';
+                    job.style.transform = 'translateY(-20px)';
+                    setTimeout(() => {
+                        job.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+        
+        // Animación inicial
+        document.addEventListener('DOMContentLoaded', function() {
+            const jobs = document.querySelectorAll('.job');
+            jobs.forEach((job, index) => {
+                job.style.opacity = '0';
+                job.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    job.style.transition = 'all 0.5s ease';
+                    job.style.opacity = '1';
+                    job.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
